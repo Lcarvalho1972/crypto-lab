@@ -133,13 +133,17 @@ python hash_sha256.py
 6️⃣ Executar o Pipeline Completo
 python pipeline_integridade.py
 
-⚠️ Aviso de Segurança
+🔐 Gestão de Chaves
 
-O arquivo chave.key está versionado apenas para fins educacionais.
-Em ambiente real:
--Nunca versionar chaves
--Utilizar variáveis de ambiente
--Utilizar gerenciadores de segredo (Vault, Azure Key Vault, etc.)
+O arquivo chave.key não é versionado e está protegido via .gitignore.
+- Em ambiente corporativo recomenda-se:
+- Nunca armazenar chaves em repositórios
+- Utilizar variáveis de ambiente
+- Utilizar gerenciadores de segredo (Azure Key Vault, HashiCorp Vault, etc.)
+
+Implementar rotação periódica de chaves
+
+Este projeto demonstra o conceito educacional de criptografia simétrica, mas segue boas práticas básicas de proteção de segredo.
 
 🎯 Finalidade Educacional
 Este projeto foi desenvolvido para consolidar:
