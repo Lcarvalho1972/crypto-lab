@@ -152,12 +152,4 @@ Este projeto foi desenvolvido para consolidar:
 
 Uso educacional.
 ---
-Esse README agora:
 
-- Explica cada script
-- Explica cada conceito
-- Documenta o pipeline
-- Mostra o que foi provado tecnicamente
-- Está tecnicamente consistente com o código
-
-Se quiser, posso agora elevar ainda mais o nível e incluir diagramas ASCII mais técnicos ou explicar matematicamente o HMAC interno do Fernet.
