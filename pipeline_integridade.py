@@ -12,13 +12,11 @@ Observação:
 - Fernet já garante integridade internamente (HMAC), mas aqui fazemos a validação explícita com SHA-256
   para fins didáticos.
 """
-
 import hashlib
 import os
 from cryptography.fernet import Fernet
 
 ARQUIVO_ORIGINAL = "criptografia_e_hash_explicacao.txt"
-ARQUIVO_CHAVE = "chave.key"
 ARQUIVO_ENC = ARQUIVO_ORIGINAL + ".enc"
 
 
@@ -44,15 +42,16 @@ def main():
     if not os.path.exists(ARQUIVO_ORIGINAL):
         raise FileNotFoundError(f"Arquivo original não encontrado: {ARQUIVO_ORIGINAL}")
 
-    if not os.path.exists(ARQUIVO_CHAVE):
-        raise FileNotFoundError(f"Chave não encontrada: {ARQUIVO_CHAVE}")
-
     # 2) Carrega original e calcula hash
     dados_original = carregar_arquivo_binario(ARQUIVO_ORIGINAL)
     hash_original = sha256_bytes(dados_original)
 
-    # 3) Carrega chave
-    chave = carregar_arquivo_binario(ARQUIVO_CHAVE)
+    # 3) Carrega chave via variável de ambiente
+    chave_env = os.environ.get("SECRET_KEY")
+    if not chave_env:
+        raise ValueError("SECRET_KEY não encontrada. Defina a variável de ambiente para executar o pipeline.")
+
+    chave = chave_env.encode()
     fernet = Fernet(chave)
 
     # 4) Criptografa e salva .enc

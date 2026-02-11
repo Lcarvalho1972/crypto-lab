@@ -27,21 +27,14 @@ arquivo_chave = "chave.key"
 # 2) GERAÇÃO OU REUTILIZAÇÃO DA CHAVE
 # ==============================
 
-if not os.path.exists(arquivo_chave):
-    # Se a chave ainda não existir, gera uma nova
-    chave = Fernet.generate_key()
-    
-    # Salva a chave em arquivo
-    with open(arquivo_chave, "wb") as file_chave:
-        file_chave.write(chave)
-    
-    print("Nova chave gerada e salva em 'chave.key'")
+# Tenta obter chave da variável de ambiente
+chave_env = os.environ.get("SECRET_KEY")
+
+if chave_env:
+    chave = chave_env.encode()
 else:
-    # Se já existir, apenas carrega
-    with open(arquivo_chave, "rb") as file_chave:
-        chave = file_chave.read()
-    
-    print("Chave existente carregada.")
+    print("Variável SECRET_KEY não encontrada. Gerando chave local para modo laboratório.")
+    chave = Fernet.generate_key()
 
 # ==============================
 # 3) CARREGAR ARQUIVO ORIGINAL

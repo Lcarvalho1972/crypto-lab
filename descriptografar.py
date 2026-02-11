@@ -34,8 +34,13 @@ if not os.path.exists(arquivo_criptografado):
 # 3) CARREGAR CHAVE
 # ==============================
 
-with open(arquivo_chave, "rb") as f:
-    chave = f.read()
+chave_env = os.environ.get("SECRET_KEY")
+
+if not chave_env:
+    raise ValueError("SECRET_KEY não encontrada. Defina a variável de ambiente para descriptografar.")
+
+chave = chave_env.encode()
+
 
 # ==============================
 # 4) CARREGAR TOKEN CRIPTOGRAFADO
