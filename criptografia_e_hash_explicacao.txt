@@ -1,0 +1,42 @@
+1)  O que é um dado criptografado?
+
+Um dado criptografado é uma informação que foi transformada por meio de
+um algoritmo matemático para que não possa ser lida por pessoas não
+autorizadas.
+
+Exemplo: Texto original: “Senha123” Após criptografia: “a8F#9kLm2$X”
+
+Somente quem possui a chave correta consegue reverter o processo e
+recuperar o conteúdo original.
+
+A criptografia é utilizada para proteger: - Senhas - Dados bancários -
+Comunicações na internet - Informações empresariais confidenciais
+
+2)  O que é Hash?
+
+Hash não é criptografia reversível. É uma função matemática que
+transforma um dado em um código fixo chamado “resumo” (digest).
+
+Exemplo: Texto: “Leonardo” Hash (SHA-256): 3c2f8e…
+
+O hash: - Não pode ser revertido - Muda completamente com qualquer
+pequena alteração no texto - É usado para verificar integridade e
+armazenar senhas com segurança
+
+3)  Principais ferramentas e algoritmos
+
+Criptografia (reversível): - AES (Advanced Encryption Standard) – Muito
+usado em sistemas modernos - RSA – Muito usado para troca de chaves e
+certificados digitais
+
+Hash (não reversível): - MD5 – Obsoleto (não seguro) - SHA-1 –
+Inseguro - SHA-256 – Muito utilizado e seguro - SHA-3 – Versão mais
+moderna - Bcrypt – Usado para armazenar senhas - Argon2 – Padrão moderno
+e mais seguro para senhas
+
+Resumo Final:
+
+Criptografia protege dados permitindo descriptografia com chave. Hash
+cria uma “impressão digital” matemática irreversível.
+
+Ambos são fundamentais para segurança da informação.
