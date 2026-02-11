@@ -7,3 +7,4 @@ __pycache__/
 
 # Arquivos temporários
 *.log
+chave.key
